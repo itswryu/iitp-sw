@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="Uracle" status="INFO" monitorInterval="1">
+    <Properties>
+        <Property name="LOG_APPENDER">console</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS}, %-5p [%15.15t] (%C) : %m%n%xwEx"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.uracle" level="debug" additivity="false">
+            <AppenderRef ref="${LOG_APPENDER}"/>
+        </Logger>
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="${LOG_APPENDER}"/>
+        </Logger>
+        <Logger name="com.zaxxer.hikari" level="info" additivity="false">
+            <AppenderRef ref="${LOG_APPENDER}"/>
+        </Logger>
+        <Logger name="org.mybatis" level="debug" additivity="false">
+            <AppenderRef ref="${LOG_APPENDER}"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="${LOG_APPENDER}"/>
+        </Root>
+    </Loggers>
+</Configuration>
